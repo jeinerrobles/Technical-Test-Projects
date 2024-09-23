@@ -1,0 +1,68 @@
+/* General styles for sidebar and page content */
+#sidebar-wrapper {
+    width: 250px;
+    transition: width 0.3s ease;
+    position: relative; /* Ensure positioning context for the toggle button */
+}
+
+#page-content-wrapper {
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.toggled #sidebar-wrapper {
+    width: 60px; /* Reduce the width of the menu when closed */
+}
+
+.toggled .list-group-item span {
+    display: none; /* Hide text when menu is closed */
+}
+
+.toggled .sidebar-heading {
+    display: none; /* Hide the title when the menu is closed */
+}
+
+/* Styles for sidebar menu items */
+.list-group-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.list-group-item i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 18px; /* Icon size */
+}
+
+/* Hover effect */
+.list-group-item:hover {
+    background-color: #007bff; /* Background color on hover */
+    color: #d12323; /* Text color on hover */
+}
+
+.list-group-item:hover i {
+    color: #d12323; /* Icon color on hover */
+}
+
+/* Button for toggling the menu */
+#menu-toggle {
+    position: absolute;
+    top: 10px; /* Adjust vertical position */
+    right: 10px; /* Adjust horizontal position to the right */
+    z-index: 1000; /* Ensure the button is on top of other content */
+}
+
+#menu-toggle i {
+    font-size: 20px; /* Size of the icon in the button */
+}
+
+/* Additional styling for the sidebar heading */
+.sidebar-heading {
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}

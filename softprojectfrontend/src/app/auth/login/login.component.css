@@ -1,0 +1,7 @@
+.card {
+    border-radius: 8px;
+  }
+  
+  .form-control.is-invalid {
+    border-color: #dc3545;
+  }
