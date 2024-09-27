@@ -1,0 +1,42 @@
+<!-- Contenido del menú si el usuario está autenticado -->
+<div *ngIf="isUserAuthenticated()" class="d-flex" [ngClass]="{ 'toggled': !isMenuOpen }" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading" *ngIf="isMenuOpen">GESTIÓN</div>
+        <div class="list-group list-group-flush">
+            <a routerLink="/projects" class="list-group-item list-group-item-action bg-light">
+                <i class="bi bi-list-task"></i>
+                <span *ngIf="isMenuOpen"> Proyectos </span>
+            </a>
+            <a routerLink="/profile" class="list-group-item list-group-item-action bg-light">
+                <i class="bi bi-person-circle"></i>
+                <span *ngIf="isMenuOpen"> Perfil </span>
+            </a>
+            <a routerLink="/metrics" class="list-group-item list-group-item-action bg-light">
+                <i class="bi bi-bar-chart"></i>
+                <span *ngIf="isMenuOpen"> Métricas </span>
+            </a>
+            <button class="list-group-item list-group-item-action bg-light" (click)="logout()">
+                <i class="bi bi-box-arrow-right"></i>
+                <span *ngIf="isMenuOpen"> Cerrar sesión </span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <button class="btn btn-primary" (click)="toggleMenu()" id="menu-toggle">
+            <i [ngClass]="isMenuOpen ? 'bi bi-chevron-left' : 'bi bi-chevron-right'"></i>
+        </button>
+        <div class="container-fluid">
+            <router-outlet></router-outlet> <!-- Aquí se cargarán dinámicamente los componentes -->
+        </div>
+    </div>
+</div>
+
+<!-- Contenido mostrado si el usuario no está autenticado -->
+<div *ngIf="!isUserAuthenticated()">
+    <div class="container-fluid">
+        <router-outlet></router-outlet> <!-- Aquí se cargarán las vistas como login o register -->
+    </div>
+</div>
